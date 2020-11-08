@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Naninovel.Commands
 {
-    [CommandAlias("croppedBack")]
+    [CommandAlias("cropBack")]
     public class CustomModifyBackground : ModifyBackground
     {
         [ParameterAlias("crop")]

@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace Naninovel.Commands
 {
-    [CommandAlias("animateCroppedBack")]
+    [CommandAlias("animateCrop")]
     public class CustomAnimateActor : AnimateActor
     {
         [ParameterAlias("posX")]
