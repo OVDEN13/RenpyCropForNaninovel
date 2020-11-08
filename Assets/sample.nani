@@ -1,9 +1,14 @@
-@custom_back modernliv size:1280,720 crop:0,40,960,520
-;@custom_back modernliv size:1280,720 crop:0,0,1280,360
-;@custom_animate MainBackground posX:0 posY:40 sizeX:960 sizeY:520 time:15 loop:false wait:false
-1
-2
-3`
-4`
+@croppedBack modernliv crop:200,40,960,520
+crop:200,40,960,520
+
+@croppedBack modernliv crop:640,360,1280,360
+crop:640,0,1280,360
+
+@croppedBack modernliv crop:200,40,960,520
+@animateCroppedBack MainBackground posX:0 posY:40 sizeX:960 sizeY:520 time:15 loop:false wait:false easing:Linear
+crop:200,40,960,520 => crop:0,40,960,520
 
 @stop
+;@croppedBack modernliv crop:0,0,1280,360
+;@croppedBack modernliv crop:0,40,960,520
+;@croppedBack modernliv crop:200,40,960,520

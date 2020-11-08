@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
+using OVDEN.Helper;
 using UniRx.Async;
 using UnityEngine;
 
@@ -62,29 +62,23 @@ namespace Naninovel.FX
                 else lastDuration = Duration[keyIdx].Value;
         }
         
-        struct CustomBackData
-        {
-            public Vector2 originSize;
-            public Vector2 size;
-            public Vector2 position;
-        }
-        
         protected override async UniTask AnimateKey (IActor actor, int keyIndex, CancellationToken cancellationToken)
         {
             tasks.Clear();
             
             if (!Duration.IsIndexValid(keyIndex)) return;
 
-            CustomBackData data;
-            data.position.x = PositionX.ElementAtOrDefault(keyIndex) ?? actor.Position.x;
-            data.position.y = PositionY.ElementAtOrDefault(keyIndex) ?? actor.Position.y;
-
-            data.size.x = SizeX.ElementAtOrDefault(keyIndex) ?? actor.Scale.x;
-            data.size.y = SizeY.ElementAtOrDefault(keyIndex) ?? actor.Scale.y;
-          
-           
-            data.originSize = Engine.GetConfiguration<CameraConfiguration>().ReferenceResolution;
-        
+            Vector2 cropPosition = new Vector2
+            {
+                [0] = PositionX.ElementAtOrDefault(keyIndex) ?? actor.Position.x,
+                [1] = PositionY.ElementAtOrDefault(keyIndex) ?? actor.Position.y
+            };
+            Vector2 cropSize = new Vector2
+            {
+                [0] = SizeX.ElementAtOrDefault(keyIndex) ?? actor.Scale.x,
+                [1] = SizeY.ElementAtOrDefault(keyIndex) ?? actor.Scale.y
+            };
+            Crop crop = new Crop(cropPosition,cropSize);
             
             var duration = Duration[keyIndex] ?? 0f;
             var easingType = EasingType.Linear;
@@ -104,7 +98,7 @@ namespace Naninovel.FX
             if (PositionX.ElementAtOrDefault(keyIndex).HasValue || PositionY.ElementAtOrDefault(keyIndex).HasValue ||
                 PositionZ.ElementAtOrDefault(keyIndex).HasValue)
             {
-                Vector2 pos = AttemptPosition(data);
+                Vector2 pos = crop.AttemptPositionVector();
                 Vector3 result = new Vector3(
                     PositionX.ElementAtOrDefault(keyIndex) != null ? pos.x : actor.Position.x,
                     PositionY.ElementAtOrDefault(keyIndex) != null ? pos.y : actor.Position.y,
@@ -118,13 +112,12 @@ namespace Naninovel.FX
 
             if (Scale.ElementAtOrDefault(keyIndex).HasValue)
             {
-                Vector3 scale = AttemptScale(data);
+                Vector3 scale = crop.AttemptScaleVector();
                 Vector3 result = new Vector3((SizeX[keyIndex] != null ? scale.x : 1f),
                     (SizeY[keyIndex] != null ? scale.y : 1f), 1);
                 tasks.Add(actor.ChangeScaleAsync(result, duration, easingType, cancellationToken));
             }
-        
-
+            
             if (TintColor.ElementAtOrDefault(keyIndex) != null)
             {
                 if (ColorUtility.TryParseHtmlString(TintColor[keyIndex], out var color))
@@ -134,47 +127,5 @@ namespace Naninovel.FX
 
             await UniTask.WhenAll(tasks);
         }
-        
-
-        private Vector3 AttemptScale(CustomBackData customBackData)
-        {
-            return new Vector3
-            {
-                [0] = customBackData.originSize.x / customBackData.size.x,
-                [1] = customBackData.originSize.y / customBackData.size.y,
-                [2] = 1.0f
-            };
-        }
-
-        private Vector3 AttemptPosition(CustomBackData customBackData)
-        {
-            Vector2 referenceSize = Engine.GetConfiguration<CameraConfiguration>().ReferenceSize;
-            
-            Vector3 cale = AttemptScale(customBackData);
-            
-            float offsetCenterX = (customBackData.originSize.x * (float)cale.x) / 2;
-            float offsetCenterX1 = customBackData.originSize.x - (customBackData.size.x / 2);
-            float offsetX = offsetCenterX1 - offsetCenterX;
-            
-            float offsetCenterY = (customBackData.originSize.y * (float) cale.y) / 2;
-            float offsetCenterY1 = customBackData.originSize.y - (customBackData.size.y / 2);
-            float offsetY = offsetCenterY1 - offsetCenterY;
-
-            float centerX = customBackData.position.x + (customBackData.size.x / 2) + offsetX;
-            float centerY = (customBackData.originSize.y - customBackData.position.y) - (customBackData.size.y / 2.0f) - offsetY;
-            
-            float x = 1.0f - (centerX / customBackData.originSize.x);
-            float y = centerY / customBackData.originSize.y;
-            
-            Vector2 originPosition = -referenceSize / 2f;
-            
-            return new Vector3
-            {
-                [0] = (originPosition + Vector2.Scale(new Vector2(x,0.0f), referenceSize)).x,
-                [1] = -(originPosition + Vector2.Scale(new Vector2(0.0f,y), referenceSize)).y,
-                [2] = 100
-            };
-        }
     }
-    
 }

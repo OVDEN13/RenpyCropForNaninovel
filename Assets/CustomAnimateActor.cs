@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UniRx.Async;
 using System.Globalization;
 
 namespace Naninovel.Commands
 {
-    [CommandAlias("custom_animate")]
+    [CommandAlias("animateCroppedBack")]
     public class CustomAnimateActor : AnimateActor
     {
         [ParameterAlias("posX")]
