@@ -1,0 +1,963 @@
+{
+    "commands": [
+        {
+            "id": "CustomAnimateActor",
+            "alias": "animateCrop",
+            "localizable": false,
+            "summary": "",
+            "remarks": "",
+            "params": [
+                {
+                    "id": "PositionX",
+                    "alias": "posX",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "PositionY",
+                    "alias": "posY",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "SizeX",
+                    "alias": "sizeX",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "SizeY",
+                    "alias": "sizeY",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "ActorIds",
+                    "alias": "",
+                    "nameless": true,
+                    "required": true,
+                    "dataType": {
+                        "kind": "array",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Loop",
+                    "alias": "",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "bool"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Appearance",
+                    "alias": "",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Transition",
+                    "alias": "",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Visibility",
+                    "alias": "",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "ScenePositionX",
+                    "alias": "posX",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "ScenePositionY",
+                    "alias": "posY",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "PositionZ",
+                    "alias": "posZ",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Rotation",
+                    "alias": "",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Scale",
+                    "alias": "",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "TintColor",
+                    "alias": "tint",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "EasingTypeName",
+                    "alias": "easing",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Duration",
+                    "alias": "time",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Wait",
+                    "alias": "",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "bool"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "ConditionalExpression",
+                    "alias": "if",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                }
+            ]
+        },
+        {
+            "id": "CustomModifyBackground",
+            "alias": "cropBack",
+            "localizable": false,
+            "summary": "",
+            "remarks": "",
+            "params": [
+                {
+                    "id": "SizeParameter",
+                    "alias": "size",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "array",
+                        "contentType": "float"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "СropParameter",
+                    "alias": "crop",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "array",
+                        "contentType": "float"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "AppearanceAndTransition",
+                    "alias": "",
+                    "nameless": true,
+                    "required": false,
+                    "dataType": {
+                        "kind": "namedLiteral",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": true,
+                    "appearanceNamedId": 0,
+                    "constant": "Transition",
+                    "constantNamedId": 1
+                },
+                {
+                    "id": "ScenePosition",
+                    "alias": "pos",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "array",
+                        "contentType": "float"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Id",
+                    "alias": "",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Appearance",
+                    "alias": "",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": true,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Transition",
+                    "alias": "",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "Transition",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "TransitionParams",
+                    "alias": "params",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "array",
+                        "contentType": "float"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "DissolveTexturePath",
+                    "alias": "dissolve",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Visible",
+                    "alias": "",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "bool"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Position",
+                    "alias": "",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "array",
+                        "contentType": "float"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Rotation",
+                    "alias": "",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "array",
+                        "contentType": "float"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Scale",
+                    "alias": "",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "array",
+                        "contentType": "float"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "TintColor",
+                    "alias": "tint",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "EasingTypeName",
+                    "alias": "easing",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "Easing",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Duration",
+                    "alias": "time",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "float"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "Wait",
+                    "alias": "",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "bool"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                },
+                {
+                    "id": "ConditionalExpression",
+                    "alias": "if",
+                    "nameless": false,
+                    "required": false,
+                    "dataType": {
+                        "kind": "literal",
+                        "contentType": "string"
+                    },
+                    "summary": "",
+                    "resourcePathPrefix": "",
+                    "resourcePathPrefixNamedId": -1,
+                    "actorPathPrefix": "",
+                    "actorPathPrefixNamedId": -1,
+                    "appearance": false,
+                    "appearanceNamedId": -1,
+                    "constant": "",
+                    "constantNamedId": -1
+                }
+            ]
+        }
+    ],
+    "resources": [
+        {
+            "name": "Dialogue",
+            "pathPrefix": "TextPrinters"
+        },
+        {
+            "name": "Fullscreen",
+            "pathPrefix": "TextPrinters"
+        },
+        {
+            "name": "Wide",
+            "pathPrefix": "TextPrinters"
+        },
+        {
+            "name": "Chat",
+            "pathPrefix": "TextPrinters"
+        },
+        {
+            "name": "Bubble",
+            "pathPrefix": "TextPrinters"
+        },
+        {
+            "name": "TMProDialogue",
+            "pathPrefix": "TextPrinters"
+        },
+        {
+            "name": "TMProFullscreen",
+            "pathPrefix": "TextPrinters"
+        },
+        {
+            "name": "TMProWide",
+            "pathPrefix": "TextPrinters"
+        },
+        {
+            "name": "TMProBubble",
+            "pathPrefix": "TextPrinters"
+        },
+        {
+            "name": "ButtonList",
+            "pathPrefix": "ChoiceHandlers"
+        },
+        {
+            "name": "ButtonArea",
+            "pathPrefix": "ChoiceHandlers"
+        },
+        {
+            "name": "Animate",
+            "pathPrefix": "Spawn"
+        },
+        {
+            "name": "DepthOfField",
+            "pathPrefix": "Spawn"
+        },
+        {
+            "name": "DigitalGlitch",
+            "pathPrefix": "Spawn"
+        },
+        {
+            "name": "Rain",
+            "pathPrefix": "Spawn"
+        },
+        {
+            "name": "ShakeBackground",
+            "pathPrefix": "Spawn"
+        },
+        {
+            "name": "ShakeCamera",
+            "pathPrefix": "Spawn"
+        },
+        {
+            "name": "ShakeCharacter",
+            "pathPrefix": "Spawn"
+        },
+        {
+            "name": "ShakePrinter",
+            "pathPrefix": "Spawn"
+        },
+        {
+            "name": "Snow",
+            "pathPrefix": "Spawn"
+        },
+        {
+            "name": "SunShafts",
+            "pathPrefix": "Spawn"
+        },
+        {
+            "name": "CustomAnimate",
+            "pathPrefix": "Spawn"
+        },
+        {
+            "name": "ClickThroughPanel",
+            "pathPrefix": "UI"
+        },
+        {
+            "name": "BacklogUI",
+            "pathPrefix": "UI"
+        },
+        {
+            "name": "CGGalleryUI",
+            "pathPrefix": "UI"
+        },
+        {
+            "name": "ConfirmationUI",
+            "pathPrefix": "UI"
+        },
+        {
+            "name": "ContinueInputUI",
+            "pathPrefix": "UI"
+        },
+        {
+            "name": "ExternalScriptsUI",
+            "pathPrefix": "UI"
+        },
+        {
+            "name": "LoadingUI",
+            "pathPrefix": "UI"
+        },
+        {
+            "name": "MovieUI",
+            "pathPrefix": "UI"
+        },
+        {
+            "name": "RollbackUI",
+            "pathPrefix": "UI"
+        },
+        {
+            "name": "SaveLoadUI",
+            "pathPrefix": "UI"
+        },
+        {
+            "name": "SceneTransitionUI",
+            "pathPrefix": "UI"
+        },
+        {
+            "name": "SettingsUI",
+            "pathPrefix": "UI"
+        },
+        {
+            "name": "TipsUI",
+            "pathPrefix": "UI"
+        },
+        {
+            "name": "TitleUI",
+            "pathPrefix": "UI"
+        },
+        {
+            "name": "VariableInputUI",
+            "pathPrefix": "UI"
+        },
+        {
+            "name": "PauseUI",
+            "pathPrefix": "UI"
+        },
+        {
+            "name": "modernliv",
+            "pathPrefix": "Backgrounds/MainBackground"
+        },
+        {
+            "name": "sample",
+            "pathPrefix": "Scripts"
+        }
+    ],
+    "actors": [
+        {
+            "id": "MainBackground",
+            "pathPrefix": "Backgrounds",
+            "displayName": "",
+            "appearances": [
+                "modernliv"
+            ]
+        },
+        {
+            "id": "ButtonList",
+            "pathPrefix": "ChoiceHandlers",
+            "displayName": "",
+            "appearances": []
+        },
+        {
+            "id": "ButtonArea",
+            "pathPrefix": "ChoiceHandlers",
+            "displayName": "",
+            "appearances": []
+        },
+        {
+            "id": "Dialogue",
+            "pathPrefix": "TextPrinters",
+            "displayName": "",
+            "appearances": []
+        },
+        {
+            "id": "Fullscreen",
+            "pathPrefix": "TextPrinters",
+            "displayName": "",
+            "appearances": []
+        },
+        {
+            "id": "Wide",
+            "pathPrefix": "TextPrinters",
+            "displayName": "",
+            "appearances": []
+        },
+        {
+            "id": "Chat",
+            "pathPrefix": "TextPrinters",
+            "displayName": "",
+            "appearances": []
+        },
+        {
+            "id": "Bubble",
+            "pathPrefix": "TextPrinters",
+            "displayName": "",
+            "appearances": []
+        },
+        {
+            "id": "TMProDialogue",
+            "pathPrefix": "TextPrinters",
+            "displayName": "",
+            "appearances": []
+        },
+        {
+            "id": "TMProFullscreen",
+            "pathPrefix": "TextPrinters",
+            "displayName": "",
+            "appearances": []
+        },
+        {
+            "id": "TMProWide",
+            "pathPrefix": "TextPrinters",
+            "displayName": "",
+            "appearances": []
+        },
+        {
+            "id": "TMProBubble",
+            "pathPrefix": "TextPrinters",
+            "displayName": "",
+            "appearances": []
+        }
+    ]
+}

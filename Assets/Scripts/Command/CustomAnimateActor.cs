@@ -18,20 +18,13 @@ namespace Naninovel.Commands
         [ParameterAlias("sizeY")]
         public StringParameter SizeY;
         
-        struct CustomBackData
-        {
-            public Vector2 originSize;
-            public Vector2 size;
-            public Vector2 position;
-        }
-        private CustomBackData customBackData;
-        
         private const string defaultDuration = "0.35";
-        
-        public const string prefabPath = "CustomAnimate";
+
         
         public override async UniTask ExecuteAsync (CancellationToken cancellationToken = default)
         {
+            const string path = "CustomAnimate";
+            
             var spawnManager = Engine.GetService<ISpawnManager>();
             var tasks = new List<UniTask>();
 
@@ -54,7 +47,7 @@ namespace Naninovel.Commands
                 parameters[12] = Assigned(EasingTypeName) ? EasingTypeName : null;
                 parameters[13] = Assigned(Duration) ? Duration.Value : defaultDuration;
 
-                var spawnPath = $"{prefabPath}{SpawnConfiguration.IdDelimiter}{actorId}";
+                var spawnPath = $"{path}{SpawnConfiguration.IdDelimiter}{actorId}";
                 if (spawnManager.IsObjectSpawned(spawnPath))
                     tasks.Add(spawnManager.UpdateSpawnedAsync(spawnPath, cancellationToken, parameters));
                 else tasks.Add(spawnManager.SpawnAsync(spawnPath, cancellationToken, parameters));
