@@ -18,7 +18,7 @@ namespace Naninovel.Commands
         protected override async UniTask ApplyModificationsAsync(IBackgroundActor actor, EasingType easingType,CancellationToken cancellationToken)
         {
             crop = new Crop(СropParameter);
-            base.ApplyModificationsAsync(actor, easingType, cancellationToken);
+            await base.ApplyModificationsAsync(actor, easingType, cancellationToken);
         }
     }
 }
